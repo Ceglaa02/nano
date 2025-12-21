@@ -1,0 +1,37 @@
+version: '3.9'
+services:
+  caddy:
+    env_file:
+      - .env
+    image: caddy:${CADDY_VERSION}
+    container_name: caddy
+    restart: unless-stopped
+    ports:
+      - "443:443"
+      - "80:80"
+    volumes:
+      - ./docker/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./app/frontend:/var/www/html
+      - caddy_data:/data
+      - caddy_config:/config
+
+  angular:
+    container_name: angular
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: docker/angular/Dockerfile
+      args:
+        NODE_VERSION: ${NODE_VERSION}
+    volumes:
+      - ./app/frontend:/app
+      - /app/node_modules
+
+volumes:
+  caddy_data:
+  caddy_config:
+
+networks:
+  default:
+    driver: bridge
