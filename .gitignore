@@ -21,12 +21,12 @@ yarn-error.log
 *.sublime-workspace
 
 # Visual Studio Code
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-.history/*
+.app/frontend/.vscode/*
+!.app/frontend/.vscode/settings.json
+!.app/frontend/.vscode/tasks.json
+!.app/frontend/.vscode/launch.json
+!.app/frontend/.vscode/extensions.json
+.app/frontend/.history/*
 
 # Miscellaneous
 /.angular/cache
@@ -41,3 +41,5 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+
+.env

@@ -64,9 +64,6 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
-          "options": {
-            "allowedHosts": ["localhost", "dev.nano.com"]
-          },
           "configurations": {
             "production": {
               "buildTarget": "frontend:build:production"
